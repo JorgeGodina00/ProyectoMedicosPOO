@@ -34,6 +34,8 @@ def guardar():
     flash('Album Agregado Correctamente')    
     return redirect(url_for('index'))
 
+
+
 @app.route('/eliminar')
 def eliminar():
     return "Se elimino"
@@ -41,3 +43,52 @@ def eliminar():
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
+    
+#RUTA MEDICO
+    
+@app.route('/medico')
+
+def medico():
+    return render_template('medico.html')
+
+#RUTA MEDICO ADMIN
+
+@app.route('/medicoadm')
+
+def medicoadm():
+    return render_template('medico_adm.html')
+
+#RUTA NUEVO DIAGNOSTICO
+
+@app.route('/nuevod')
+
+def nuevod():
+    return render_template('nuevo_diag.html')
+
+#RUTA NUEVO MEDICO
+
+@app.route('/nuevod')
+
+def nuevod():
+    return render_template('nuevo_medico.html')
+
+#RUTA CITAS
+
+@app.route('/citas')
+
+def citas():
+    return render_template('citas.html')
+
+#RUTA CAPTURA DE DATOS
+
+@app.route('/capturad')
+
+def capturad():
+    return render_template('captura_datos.html')
+
+#RUTA PAGINA PRINCIPAL
+
+@app.route('/login')
+
+def login():
+    return render_template('login.html')
