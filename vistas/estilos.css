@@ -1,0 +1,110 @@
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #f0f0f0;
+  }
+
+  h1 {
+    color: #6797f0;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 7px solid #dddddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  texta {
+    width: 90%;
+    padding: 9px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+  }
+
+  input[type="submit"] {
+    background-color: #6797f0;
+    color: #ffffff;
+    border: 1px solid #6797f0;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .containerM {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #ffffff;
+    border: 7px solid #dddddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .imgdoctor {
+    width: 300px;
+    text-align: center;
+  }
+
+  label1 {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  input1[type="text"],
+  text {
+    max-width: 90%;
+    padding: 15px;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+  }
+
+  .containerD {
+    max-width: 800px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #ffffff;
+    border: 7px solid #dddddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .imgs {
+    width: 50px;
+    margin-top: 10px;
+  }
+
+  .button1 {
+    background-color: #cedcf2;
+    color: #ffffff;
+    border: 1px solid #cedcf2;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .button2 {
+    background-color: #6797f0;
+    color: #ffffff;
+    border: 1px solid #6797f0;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .button3 {
+    background-color: #6f00ff;
+    color: #ffffff;
+    border: 1px solid #6f00ff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
