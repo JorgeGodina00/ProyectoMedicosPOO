@@ -4,32 +4,45 @@
 
   <title>Hospital San José</title>
   
-  <link rel="stylesheet" href="estilos.css">
-  
+  <link rel="stylesheet" href="../static/CSS/estilos.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    
 </head>
 <body>
   <div class="container">
     <h1>Nuevo Medico</h1>
-    <form>
-      <label1 for="nombre">Nombre:</label>
-      <input type="text" name="nom" placeholder="Ingresa el nombre">
+    <form action="/guardarmedico" method="POST">
+      
+    <label1 for="nombre">Nombre:</label>
+        <br><input type="text" name="nametxt" placeholder="Ingresa el Nombre"></br>
+      
+        <label1 for="rfc">Apellido Patero:</label>
+          <br><input type="text" name="aptxt" placeholder="Ingresa Apellido Paterno"></br>
+          
+      <label1 for="rfc">Apellido Materno:</label>
+            <br><input type="text" name="amtxt" placeholder="Ingrsa Apellido Materno"></br>
 
       <label1 for="rfc">RFC:</label>
-      <br><input type="text" name="rfc" placeholder="Ingresa RFC"></br>
-
-      <label1 for="esp">Especialidad:</label>
-      <input type="text" name="esp" placeholder="Ingresa especialidad">
+      <br><input type="text" name="rfctxt" placeholder="Ingresa RFC"></br>
 
       <label1 for="cd">Cedula:</label>
-      <input type="text" name="cd" placeholder="Ingresa cedula">
+      <input type="text" name="cdtxt" placeholder="Ingresa cedula Profesional">
   
+      <label1 for="rol">Rol:</label>
+        <br><input type="text" name="roltxt" placeholder="Ingresa el Rol"></br>
+      
+      
       <label1 for="correo">Correo:</label>
-      <input type="text" name="correo" placeholder="Correo">
+      <input type="text" name="correotxt" placeholder="Correo electronico">
 
-      <label1 for="passw">Password:</label>
-      <input type="text" name="passw" placeholder="Password">
+      <label1 for="passw">Password:</label> 
+        <input type="text" name="passtxt" placeholder="Password">
+          
 
       <input type="submit" value="Registrar medico">
+   
+   
+   
     </form>
   </div>
 </body>

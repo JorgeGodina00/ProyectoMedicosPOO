@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
 
-  <title>Hospital San José</title>
-   href={{url_for('static','filename=C:\Users\LENOVO\OneDrive\Documentos\GitHub\ProyectoMedicosPOO\ProyectoMedicosPOO\static\CSS\estilos.css')}}
-</head>
-<body>
+{% extends 'plantilla.html' %}
+
+
+  {%block body%}
   <div class="containerM">
     <h1>Perfil Medico</h1>
     <form>
@@ -23,5 +20,57 @@
 
     </form>
   </div>
+  {%endblock%} 
+
+
+<!--ChatGPT
+Para utilizar la plantilla {% extends 'plantilla.html' %}, debes organizar el código de la siguiente manera:
+
+Define bloques en la plantilla base (plantilla.html) que puedan ser rellenados en las plantillas que la extiendan.
+En la plantilla actual, rellena los bloques con el contenido específico que quieres mostrar.
+Vamos a corregir el código:
+
+plantilla.html (plantilla base):
+
+html
+Copy code
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hospital San José</title>
+  <link rel="stylesheet" href="../static/CSS/estilos.css">
+</head>
+<body>
+  {% block body %}{% endblock %}
 </body>
 </html>
+perfil_medico.html (tu plantilla específica):
+
+html
+Copy code
+{% extends 'plantilla.html' %}
+
+{% block body %}
+<div class="containerM">
+  <h1>Perfil Medico</h1>
+  <form>
+    <img src="doctor.png" class="imgdoctor">
+    <label for="nombre1">Nombre: Roberto Medina</label>
+    <label for="rfc1">RFC: 12345ABCDE</label>
+    <label for="area1">Area: Medico Cirujano</label>
+    <label for="cedula1">Cedula: 029492JDNSKF</label>
+    <br><label for="area1"></label></br>
+    <a href="nuevo_diag.html" class="button2">Nuevo diagnóstico</a>
+    <a href="captura_datos.html" class="button2">Nueva cita</a>
+    <a href="citas.html" class="button1">Citas</a>
+    <br><label for="area1"></label></br>
+    <a href="login.html" class="button3">Cerrar sesión</a>
+  </form>
+</div>
+{% endblock %}
+Con estas modificaciones, ahora tu plantilla específica (perfil_medico.html) extiende la plantilla base (plantilla.html) y rellena el bloque de contenido específico. Al renderizar la plantilla perfil_medico.html, el contenido se colocará en el lugar del bloque body de la plantilla base. Recuerda ajustar los nombres de archivo y rutas según la estructura de tu proyecto.
+
+
+
+
+
