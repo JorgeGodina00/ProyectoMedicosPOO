@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="../static/css/admintemplate.css">
+    
+    <!----===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    
+    <title>Dashboard MEDIC SII</title> 
+</head>
+<body>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="..\static\images\logo2.png" alt="logo">
+                </span>
+
+                <div class="text logo-text">
+                    <span class="name">MEDIC SII</span>
+                    <span class="profession">ADMIN DASHBOARD</span>
+                </div>
+            </div>
+	
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="/adminbuscar">
+                            <i class='bx bx-search-alt-2'></i>
+                            <span class="text nav-text">Buscar Paciente</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/adminindex">
+                            <i class='bx bx-home-alt'></i>
+                            <span class="text nav-text">Inicio</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/agregarmedicos">
+                            <i class='bx bx-plus-medical'></i>
+                            <span class="text nav-text">Agregar Medicos</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/agregarpacientes">
+                            <i class='bx bxs-face'></i>
+                            <span class="text nav-text">Agregar Paciente</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/expediente">
+                            <i class='bx bx-file' ></i>
+                            <span class="text nav-text">Crear Expediente</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-link">
+                        <a href="/crearcita">
+                            <i class='bx bx-calendar' ></i>
+                            <span class="text nav-text">Crear Citas</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="bottom-content">
+                <li class="">
+                    <a href="/salir">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Salir</span>
+                    </a>
+                </li>
+
+                
+            </div>
+        </div>
+
+    </nav>
+
+    
+
+    <script src="../static/js/admindashtemplate.js"></script>
+    {% block body%}
+
+
+
+
+    {% endblock %}
+</body>
+</html>

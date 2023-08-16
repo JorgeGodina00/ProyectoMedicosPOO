@@ -1,0 +1,48 @@
+{% extends 'templateadmin.html' %}
+
+{% block body %} 
+{% endblock %}
+
+
+    
+    <div class="col-md-7"> <!-- colum 7 -->
+        <h2>Medicos Registrados</h2>
+        <div class="table-responsive"> <!--Table Responsive-->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>RFC:</td>
+                        <td>Correo:</td>
+                        <td>id_rol:</td>
+                        <td>Contraseña:</td>
+                        <td>Nombre:</td>
+                        <td>Apellido: </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for medi in listmedi %}
+                        <tr>
+                            <td>{{ medi.1 }}</td>
+                            <td>{{ medi.2 }}</td>
+                            <td>{{ medi.3 }}</td>
+                            <td>{{ medi.4 }}</td>
+                            <td>{{ medi.5 }}</td>
+                            <td>{{ medi.6 }}</td>
+                            <td>
+                                <a href="/editar/{{ medi.0 }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                                <a href="/borrar/{{ medi.0 }}" class="btn btn-danger"><i class="bi bi-trash3"></i></a>
+                                <a href=""></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div> <!--Table Responsive-->
+    </div> <!-- colum 7 -->
+</div> <!-- row -->
+</div> <!--Contrainer-->
+
+
+
+
+
