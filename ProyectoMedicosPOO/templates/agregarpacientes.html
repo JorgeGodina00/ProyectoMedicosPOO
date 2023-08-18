@@ -3,7 +3,8 @@
 {% block body %} 
     <body>
         <style>
-            
+         
+    
             h1 {
                 text-align: center;
                 margin-top: 20px;
@@ -66,28 +67,26 @@
                 {% endif %}
                 {% endwith %}
                 <div class="tabla-registro-medicos">
-                    <h1>Registro de Médico</h1>
-                    <form method="POST" action="/registro_medico">
-                        <label for="rfc">RFC:</label>
-                        <input type="text" name="rfc" required><br>
-                
-                        <label for="cedula">Cédula:</label>
-                        <input type="text" name="cedula" required><br>
-                
-                        <label for="correo">Correo:</label>
-                        <input type="email" name="correo" required><br>
-                
-                        <label for="id_rol">ID Rol:</label>
-                        <input type="text" name="id_rol" required><br>
-                
-                        <label for="password">Contraseña:</label>
-                        <input type="password" name="pass" required><br>
-                
-                        <label for="nombre">Nombre:</label>
+                    <h1>Registro de Pacientes</h1>
+                    <form method="POST" action="/agregarpacientes2">
+                        <label for="rfc">Nombre: </label>
                         <input type="text" name="nombre" required><br>
                 
-                        <label for="apellido">Apellido:</label>
-                        <input type="text" name="apellido" required><br>
+                        <label for="cedula">Fecha de Nacimiento: </label>
+                        <input type="date" name="nacimiento" required><br>
+                
+                        <label for="correo">Enfermedades: </label>
+                        <input type="text" name="enfermedades" required><br>
+                
+                        <label for="id_rol">Alergias: </label>
+                        <input type="text" name="alergias" required><br>
+                
+                        <label for="password">Antecedentes: </label>
+                        <input type="text" name="antecendentes" required><br>
+                
+                        <label for="nombre">RFC_Medico: </label>
+                        <input type="text" name="medico_rfc" required><br>
+
                 
                         <input type="submit" value="Registrar">
                     </form>
