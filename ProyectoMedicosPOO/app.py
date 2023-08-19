@@ -19,6 +19,10 @@ mysql = MySQL(app)
 #La ruta se compone de la ruta y su funcion
 @app.route('/')
 def index():
+    return render_template('templateusu.html')
+
+@app.route('/agregarpacientes')
+def addpacientes():
     return render_template('pacientes.html')
 
 
@@ -53,7 +57,7 @@ def newmedico():
         Vdiagnostico= request.form['passtxt']
         #print()    
         CS = mysql.connection.cursor() #Variable de tipo cursor que contiene las herramientas paara realizar los querys
-        CS.execute("INSERT INTO medicos (nombre, apellido_paterno, apellido_materno, rfc, cedula, correo, rol, pass) VALUES (%s, %s, %s, %s, %s, %s,%s, %s)", (Vnombre, Vapellidop, Vapellidom, Vrfc, Vcecula, Vcorreo, Vrol, Vpassword))
+        CS.execute("INSERT INTO medicos (nombre, apellido_paterno, apellido_materno, rfc, cedula, correo, rol, pass) VALUES (%s, %s, %s, %s, %s, %s,%s, %s)", (Vnombre, Vapellidop, Vapellidom))
         mysql.connection.commit()
     flash('Se ha hecho el registro correctamente')    
     return redirect(url_for('index'))
