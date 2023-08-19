@@ -1,6 +1,8 @@
-<!-- {% extends 'templateusu.html' %}
 
-{% block body %} -->
+ {% extends 'templateusu.html' %}
+
+{% block body %} 
+
     <body>
         <style>
             
@@ -75,29 +77,34 @@
                         <label for="nombre">Nombre:</label>
                         <input type="text" name="nomtxt" required placeholder="Escribe el Nombre del Paciente"><br>
                 
-                        <label for="apellido">Apellido Paterno:</label>
+                        <label for="apellido1">Apellido Paterno:</label>
                         <input type="text" name="aptxt" required placeholder="Escribe el Primer Apellido del Paciente"><br>
                         
-                        <label for="apellido">Apellido Materno:</label>
+                        <label for="apellido2">Apellido Materno:</label>
                         <input type="text" name="amtxt" required placeholder="Escribe el Segundo Apellido del Paciente"><br>
 
-                        <label for="Fecha de nacimie">Fecha de Nacimiento:</label>
+                        <label for="Fecha de Nacimiento">Fecha de Nacimiento:</label>
                         <input type="date" name="datetxt" required placeholder="Selecciona la Fecha de Nacimiento del Paciente"><br>
                 
-                        <label for="correo">Enfermedades:</label>
-                        <input type="text" name="enftext" required placeholder="Escribe alguna enfermedad de tiempo del Paciente"><br>
+                        <label for="id_rol">Enfermedades:</label>
+                        <input type="text" name="entxt" required placeholder="Escribe alguna enfermedad cronica del Paciente"><br>
                 
                         <label for="id_rol">Alergias:</label>
                         <input type="text" name="altxt" required placeholder="Escribe alguna alergía del Paciente"><br>
-                
+                        
+                        <label for="id_rol">Antecedentes:</label>
+                        <input type="text" name="anttxt" required placeholder="Escribe algun Antecedente del Paciente"><br>
                 
                         <input type="submit" value="Registrar">
+                       
+                     
+                   
                     </form>
                 </div>
             </div>
         </center>
     </body>
 
-<!--    {% endblock %} -->
+   {% endblock %} 
 
 

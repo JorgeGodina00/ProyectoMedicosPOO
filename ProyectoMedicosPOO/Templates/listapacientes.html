@@ -1,0 +1,31 @@
+<div class="col-md-7"> <!-- colum 7 -->
+    <h2>Pacientes</h2>
+    <div class="table-responsive"> <!--Table Responsive-->
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Id:</td>
+                    <td>Nombre:</td>
+                    <td>Artista:</td>
+                    <td>Año de publicacion:</td>
+                    <td>Acciones:</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for alb in listAlbums %}
+                    <tr>
+                        <td>{{ alb.0 }}</td>
+                        <td>{{ alb.1 }}</td>
+                        <td>{{ alb.2 }}</td>
+                        <td>{{ alb.3 }}</td>
+                        <td>
+                            <a href="/editar/{{ alb.0 }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                            <a href="/borrar/{{ alb.0 }}" class="btn btn-danger"><i class="bi bi-trash3"></i></a>
+                            <a href=""></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div> <!--Table Responsive-->
+</div> <!-- colum 7 -->

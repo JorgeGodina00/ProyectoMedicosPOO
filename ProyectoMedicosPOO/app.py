@@ -21,27 +21,16 @@ mysql = MySQL(app)
 def index():
     return render_template('templateusu.html')
 
+
+
+
 @app.route('/agregarpacientes')
 def addpacientes():
     return render_template('pacientes.html')
 
 
 
-@app.route('/diagnostico', methods=['POST'])
-def newdagnostico():
-    if request.method == 'POST':
-        Vnombre= request.form['nontxt']
-        Vdate= request.form['fdntxt']
-        Venfermedades= request.form['enftxt']
-        Valergias= request.form['altxt']
-        Vantesedentes= request.form['anttxt']
-        Vdiagnostico= request.form['diagtxt']
-        #print()
-        CS = mysql.connection.cursor() #Variable de tipo cursor que contiene las herramientas paara realizar los querys
-        CS.execute("INSERT INTO diagnostico (nombre, fecha_nacimiento, enfermedades, alergias, antecedentes, diagnostico) VALUES (%s, %s, %s,%s, %s, %s)", (Vnombre, Vdate, Venfermedades, Valergias, Vantesedentes, Vdiagnostico))
-        mysql.connection.commit()
-    flash('Se ha hecho el registro correctamente')    
-    return redirect(url_for('index'))
+
 
 
 #Registro de pacientes
@@ -53,15 +42,17 @@ def newpaciente():
         apellidop= request.form['aptxt']
         apellidom= request.form['amtxt']
         fecha_nacimiento= request.form['datetxt']
-        enfermedades= request.form['enftxt']
+        enfermedades= request.form['entxt']
         alergias= request.form['altxt']
+        antecedentes= request.form['anttxt']
         #print()    
         CS = mysql.connection.cursor() #Variable de tipo cursor que contiene las herramientas paara realizar los querys
-        CS.execute("INSERT INTO pacientes (RFC_MED, Nombre, apellido1, apellido2, Fecha_nacimiento, Enfermedades, Alergias) VALUES (%s, %s, %s, %s, %s, %s,%s)", (rfc, nombre, apellidop, apellidom, fecha_nacimiento, enfermedades, alergias))
+        CS.execute("INSERT INTO pacientes (RFC_MED, Nombre, apellido1, apellido2, Fecha_nacimiento, Enfermedades, Alergias, Antecedentes) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)", (rfc, nombre, apellidop, apellidom, fecha_nacimiento, enfermedades, alergias, antecedentes))
         mysql.connection.commit()
     flash('Se ha hecho el registro correctamente')    
     return redirect(url_for('index'))
 
+#Registro de Médicos
 
 
 
