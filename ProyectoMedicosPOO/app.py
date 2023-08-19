@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash #Importacion de librerias
 from flask_mysqldb import MySQL
-
+import bcrypt
 
 #iniciar servidor Flask
 #configuracion de BD
@@ -8,7 +8,7 @@ app= Flask(__name__)
 app.config['MYSQL_HOST']="localhost"
 app.config['MYSQL_USER']="root"
 app.config['MYSQL_PASSWWORD']=""
-app.config['MYSQL_DB']="medicospoo"
+app.config['MYSQL_DB']="medicos"
 
 app.secret_key='mysecretkey'
 
@@ -44,20 +44,20 @@ def newdagnostico():
     return redirect(url_for('index'))
 
 
+#Registro de pacientes
 @app.route('/guardarpaciente', methods=['POST'])
-def newmedico():
+def newpaciente():
     if request.method == 'POST':
-        Vnombre= request.form['nomtxt']
-        Vapellidop= request.form['aptxt']
-        Vapellidom= request.form['amtxt']
-        Vfecha_nacimiento= request.form['datetxt']
-        Venfermedades= request.form['datetxt']
-        Valergias= request.form['alttxt']
-        Vantecedentes= request.form['roltxt']
-        Vdiagnostico= request.form['passtxt']
+        rfc= request.form['rfctxt']
+        nombre= request.form['nomtxt']
+        apellidop= request.form['aptxt']
+        apellidom= request.form['amtxt']
+        fecha_nacimiento= request.form['datetxt']
+        enfermedades= request.form['enftxt']
+        alergias= request.form['altxt']
         #print()    
         CS = mysql.connection.cursor() #Variable de tipo cursor que contiene las herramientas paara realizar los querys
-        CS.execute("INSERT INTO medicos (nombre, apellido_paterno, apellido_materno, rfc, cedula, correo, rol, pass) VALUES (%s, %s, %s, %s, %s, %s,%s, %s)", (Vnombre, Vapellidop, Vapellidom))
+        CS.execute("INSERT INTO pacientes (RFC_MED, Nombre, apellido1, apellido2, Fecha_nacimiento, Enfermedades, Alergias) VALUES (%s, %s, %s, %s, %s, %s,%s)", (rfc, nombre, apellidop, apellidom, fecha_nacimiento, enfermedades, alergias))
         mysql.connection.commit()
     flash('Se ha hecho el registro correctamente')    
     return redirect(url_for('index'))

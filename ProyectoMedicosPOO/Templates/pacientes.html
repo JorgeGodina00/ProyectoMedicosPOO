@@ -1,6 +1,6 @@
-{% extends 'templateusu.html' %}
+<!-- {% extends 'templateusu.html' %}
 
-{% block body %} 
+{% block body %} -->
     <body>
         <style>
             
@@ -26,7 +26,8 @@
     
             input[type="text"],
             input[type="email"],
-            input[type="password"] {
+            input[type="password"],
+            input[type="date"] {
                 width: 100%;
                 padding: 10px;
                 margin-bottom: 15px;
@@ -66,28 +67,29 @@
                 {% endif %}
                 {% endwith %}
                 <div class="tabla-registro-medicos">
-                    <h1>Registro de Médico</h1>
-                    <form method="POST" action="/registro_medico">
+                    <h1>Registro de Pacientes</h1>
+                    <form method="POST" action="/guardarpaciente">
                         <label for="rfc">RFC:</label>
-                        <input type="text" name="rfc" required><br>
-                
-                        <label for="cedula">Cédula:</label>
-                        <input type="text" name="cedula" required><br>
-                
-                        <label for="correo">Correo:</label>
-                        <input type="email" name="correo" required><br>
-                
-                        <label for="id_rol">ID Rol:</label>
-                        <input type="text" name="id_rol" required><br>
-                
-                        <label for="password">Contraseña:</label>
-                        <input type="password" name="pass" required><br>
-                
+                        <input type="text" name="rfctxt" required placeholder="Escribe el RFC del Médico consultor"> <br>
+                        
                         <label for="nombre">Nombre:</label>
-                        <input type="text" name="nombre" required><br>
+                        <input type="text" name="nomtxt" required placeholder="Escribe el Nombre del Paciente"><br>
                 
-                        <label for="apellido">Apellido:</label>
-                        <input type="text" name="apellido" required><br>
+                        <label for="apellido">Apellido Paterno:</label>
+                        <input type="text" name="aptxt" required placeholder="Escribe el Primer Apellido del Paciente"><br>
+                        
+                        <label for="apellido">Apellido Materno:</label>
+                        <input type="text" name="amtxt" required placeholder="Escribe el Segundo Apellido del Paciente"><br>
+
+                        <label for="Fecha de nacimie">Fecha de Nacimiento:</label>
+                        <input type="date" name="datetxt" required placeholder="Selecciona la Fecha de Nacimiento del Paciente"><br>
+                
+                        <label for="correo">Enfermedades:</label>
+                        <input type="text" name="enftext" required placeholder="Escribe alguna enfermedad de tiempo del Paciente"><br>
+                
+                        <label for="id_rol">Alergias:</label>
+                        <input type="text" name="altxt" required placeholder="Escribe alguna alergía del Paciente"><br>
+                
                 
                         <input type="submit" value="Registrar">
                     </form>
@@ -95,6 +97,7 @@
             </div>
         </center>
     </body>
-{% endblock %}
+
+<!--    {% endblock %} -->
 
 
