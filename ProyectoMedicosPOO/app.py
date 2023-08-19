@@ -19,7 +19,7 @@ mysql = MySQL(app)
 #La ruta se compone de la ruta y su funcion
 @app.route('/')
 def index():
-    return render_template('nuevo_medico.html')
+    return render_template('pacientes.html')
 
 
 
@@ -35,27 +35,6 @@ def newdagnostico():
         #print()
         CS = mysql.connection.cursor() #Variable de tipo cursor que contiene las herramientas paara realizar los querys
         CS.execute("INSERT INTO diagnostico (nombre, fecha_nacimiento, enfermedades, alergias, antecedentes, diagnostico) VALUES (%s, %s, %s,%s, %s, %s)", (Vnombre, Vdate, Venfermedades, Valergias, Vantesedentes, Vdiagnostico))
-        mysql.connection.commit()
-    flash('Se ha hecho el registro correctamente')    
-    return redirect(url_for('index'))
-
-#Ruta Guardar medico
-
-@app.route('/guardarmedico', methods=['POST'])
-def newmedico():
-    if request.method == 'POST':
-        Vnombre= request.form['nametxt']
-        Vapellidop= request.form['aptxt']
-        Vapellidom= request.form['amtxt']
-        Vrfc= request.form['rfctxt']
-        Vcecula= request.form['cdtxt']
-        Vcorreo= request.form['correotxt']
-        Vrol= request.form['roltxt']
-        Vpassword= request.form['passtxt']
-    
-        #print()    
-        CS = mysql.connection.cursor() #Variable de tipo cursor que contiene las herramientas paara realizar los querys
-        CS.execute("INSERT INTO medicos (nombre, apellido_paterno, apellido_materno, rfc, cedula, correo, rol, pass) VALUES (%s, %s, %s, %s, %s, %s,%s, %s)", (Vnombre, Vapellidop, Vapellidom, Vrfc, Vcecula, Vcorreo, Vrol, Vpassword))
         mysql.connection.commit()
     flash('Se ha hecho el registro correctamente')    
     return redirect(url_for('index'))
