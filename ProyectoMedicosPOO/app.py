@@ -17,14 +17,10 @@ mysql = MySQL(app)
 
 #Declaracion de la ruta
 #Ruta index
-#La ruta se compone de la ruta y su funcion
+#La rutas dashbord
 @app.route('/')
 def index():
     return render_template('templateusu.html')
-
-
-
-
 
 @app.route('/agregarpacientes')
 def addpacientes():
@@ -78,10 +74,6 @@ def actualizar(id):
         mysql.connection.commit()
     flash('Se ha hecho el registro correctamente')    
     return render_template('templateusu.html')
-
-
-
-
 
 #Borrar pacientes
 @app.route('/borrar/<id>')
