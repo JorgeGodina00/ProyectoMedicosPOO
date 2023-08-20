@@ -89,7 +89,7 @@ def borrar(id):
     curEditar = mysql.connection.cursor()
     curEditar.execute('SELECT * FROM pacientes WHERE Id_paciente = %s', (id,))
     consulId = curEditar.fetchone()
-    return render_template('eliminarpaciente.html', album=consulId)
+    return render_template('eliminarpaciente.html', paciente=consulId)
 
 @app.route('/eliminar/<id>', methods=['POST'])
 def eliminar(id):
