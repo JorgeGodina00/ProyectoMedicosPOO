@@ -26,6 +26,10 @@ def index():
 def addpacientes():
     return render_template('pacientes.html')
 
+@app.route('/medicos')
+def addmedicos():
+    return render_template('medicos.html')
+
 
 
 
@@ -103,7 +107,27 @@ def buscar():
 
 
 #Registro de Médicos
+#Ejecutar en terminal: pip install werkzeug passlib cryptography  
+@app.route('/registro_medico', methods=['POST'])
+def registro_medico():
+    if request.method == 'POST':
+        rfc = request.form['rfc']
+        nombre = request.form['nombre']
+        apellidop = request.form['apellido1']
+        apellidom = request.form['apellido2']
+        cedula = request.form['cedula']
+        correo = request.form['correo']
+        password = request.form['pass']
+        id_rol = request.form['id_rol']
 
+        # Encriptar la contraseña antes de guardarla
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
+
+        cs = mysql.connection.cursor()
+        cs.execute('INSERT INTO medicos (RFC, Nombre, Apellido1, Apellido2, cedula, correo, password, id_rol) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)', (rfc, nombre, apellidop, apellidom, cedula, correo, hashed_password, id_rol))
+        mysql.connection.commit()
+        flash('Médico registrado correctamente :)')
+    return render_template('templateusu.html')
 
 
 

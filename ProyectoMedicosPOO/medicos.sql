@@ -14,6 +14,7 @@ CREATE TABLE `medicos` (
     `id_Rol` int  NOT NULL,
     PRIMARY KEY (`RFC`)
 );
+ALTER TABLE medicos MODIFY COLUMN password VARCHAR(255);
 
 CREATE TABLE `pacientes` (
     `Id_paciente` INT AUTO_INCREMENT,
