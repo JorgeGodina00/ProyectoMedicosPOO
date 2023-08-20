@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash #Imp
 from flask_mysqldb import MySQL
 import bcrypt
 
+
 #iniciar servidor Flask
 #configuracion de BD
 app= Flask(__name__)
@@ -21,9 +22,7 @@ mysql = MySQL(app)
 def index():
     return render_template('templateusu.html')
 
-@app.route('/lista')
-def listpacientes():
-    return render_template('listapacientes.html')
+
 
 
 
@@ -65,18 +64,16 @@ def editar(id):
 
 
 #Lista Pacientes
-@app.route('/buscar')
+@app.route('/lista')
 def buscar():
     curSelect = mysql.connection.cursor()
     curSelect.execute('SELECT * FROM pacientes')
     consulta = curSelect.fetchall()
-    return render_template('listapacientes.html', listpaciente = consulta)
+    return render_template('listapacientes.html', listPacientes = consulta)
 
 
 
 #Registro de Médicos
-
-
 
 
 
