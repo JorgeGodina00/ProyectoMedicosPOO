@@ -1,0 +1,60 @@
+
+{%extends 'templateusu.html'%}
+
+{%block body%}
+    
+ <center>
+  
+    <h1 class="display-4 text-center mt-1 mb-1 text-secondary">Actualizar Paciente</h1>
+    
+<div class="container-sm"> <!--Contrainer-->
+    <div class="col-md-5"> <!--Columna 5-->
+        <div class="card card-body"> <!--Card-->
+            <form action="/actualizar/{{paciente.0}}" method="POST">
+               
+                 <div class="mb-3">
+                  <h2 class="display-7 text-left mt-2 mb-2"> RFC MEDICO:</h2>
+                  <input type="text" class="form-control" name="rfctxt", value="{{paciente.1}}">
+                 </div>
+                 <div class="mb-3">
+                    <h2 class="display-7 text-left mt-2 mb-2"> Nombre Paciente:</h2>
+                    <input type="text" class="form-control" name="nomtxt", value="{{paciente.2}}">
+                   </div>
+                   <div class="mb-3">
+                    <h2 class="display-7 text-left mt-2 mb-2"> Apellido Paterno:</h2>
+                    <input type="text" class="form-control" name="aptxt", value="{{paciente.3}}">
+                   </div>
+                   <div class="mb-3">
+                    <h2 class="display-7 text-left mt-2 mb-2"> Apellido Materno:</h2>
+                    <input type="text" class="form-control" name="amtxt", value="{{paciente.4}}">
+                   </div>
+                   <div class="mb-3">
+                    <h2 class="display-7 text-left mt-2 mb-2"> Fecha de nacimiento:</h2>
+                    <input type="date" class="form-control" name="datetxt", value="{{paciente.5}}">
+                   </div>
+                   <div class="mb-3">
+                    <h2 class="display-7 text-left mt-2 mb-2"> Enfermedades:</h2>
+                    <input type="text" class="form-control" name="entxt", value="{{paciente.6}}">
+                   </div>
+                   <div class="mb-3">
+                    <h2 class="display-7 text-left mt-2 mb-2"> Alergias:</h2>
+                    <input type="text" class="form-control" name="altxt", value="{{paciente.7}}">
+                   </div>
+                   <div class="mb-3"> 
+                    <h2 class="display-7 text-left mt-2 mb-2">Antecedentes</h2>
+                    <input type="text" class="form-control" name="anttxt", value="{{paciente.8}}">
+                  </div>
+
+
+
+                 <div class="d-grid gap-2 col-6 mx-auto">
+                  <button type="submit" class="btn btn-success"> Actualizar <i class="bi bi-upload"></i> </button>
+                 </div>
+             </form>
+        </div> <!--Card-->
+    </div> <!--Columna 5-->
+</div> <!--Contrainer-->
+
+ </center>
+
+{%endblock%}

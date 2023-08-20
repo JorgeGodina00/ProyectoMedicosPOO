@@ -58,10 +58,47 @@ def newpaciente():
 @app.route('/editar/<id>')
 def editar(id):
     curEditar = mysql.connection.cursor()
-    curEditar.execute('SELECT * FROM pacientes WHERE id = %s', (id,))
+    curEditar.execute('SELECT * FROM pacientes WHERE Id_paciente = %s', (id,))
     consulId = curEditar.fetchone()
     return render_template('actualizarpaciente.html', paciente=consulId)
 
+@app.route('/actualizar/<id>', methods=['POST'])
+def actualizar(id):
+    if request.method == 'POST':
+        rfc= request.form['rfctxt']
+        nombre= request.form['nomtxt']
+        apellidop= request.form['aptxt']
+        apellidom= request.form['amtxt']
+        fecha_nacimiento= request.form['datetxt']
+        enfermedades= request.form['entxt']
+        alergias= request.form['altxt']
+        antecedentes= request.form['anttxt']
+        CS = mysql.connection.cursor() #Variable de tipo cursor que contiene las herramientas paara realizar los querys
+        CS.execute('UPDATE pacientes SET RFC_MED=%s, Nombre=%s, apellido1=%s, apellido2=%s, Fecha_nacimiento=%s, Enfermedades=%s, Alergias=%s, Antecedentes=%s WHERE Id_paciente=%s', (rfc, nombre, apellidop, apellidom, fecha_nacimiento, enfermedades, alergias, antecedentes, id))
+        mysql.connection.commit()
+    flash('Se ha hecho el registro correctamente')    
+    return render_template('templateusu.html')
+
+
+
+
+
+#Borrar pacientes
+@app.route('/borrar/<id>')
+def borrar(id):
+    curEditar = mysql.connection.cursor()
+    curEditar.execute('SELECT * FROM pacientes WHERE Id_paciente = %s', (id,))
+    consulId = curEditar.fetchone()
+    return render_template('eliminarpaciente.html', album=consulId)
+
+@app.route('/eliminar/<id>', methods=['POST'])
+def eliminar(id):
+    if request.method == 'POST':
+        curEli = mysql.connection.cursor()
+        curEli.execute('DELETE FROM pacientes WHERE Id_paciente=%s', (id,))
+        mysql.connection.commit()
+        flash('El Paciente ha sido eliminado :)')
+    return render_template('templateusu.html')
 
 #Lista Pacientes
 @app.route('/lista')
