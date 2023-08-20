@@ -21,6 +21,9 @@ mysql = MySQL(app)
 def index():
     return render_template('templateusu.html')
 
+@app.route('/lista')
+def listpacientes():
+    return render_template('listapacientes.html')
 
 
 
@@ -52,7 +55,31 @@ def newpaciente():
     flash('Se ha hecho el registro correctamente')    
     return redirect(url_for('index'))
 
+#editar pacientes
+@app.route('/editar/<id>')
+def editar(id):
+    curEditar = mysql.connection.cursor()
+    curEditar.execute('SELECT * FROM pacientes WHERE id = %s', (id,))
+    consulId = curEditar.fetchone()
+    return render_template('actualizarpaciente.html', paciente=consulId)
+
+
+#Lista Pacientes
+@app.route('/buscar')
+def buscar():
+    curSelect = mysql.connection.cursor()
+    curSelect.execute('SELECT * FROM pacientes')
+    consulta = curSelect.fetchall()
+    return render_template('listapacientes.html', listpaciente = consulta)
+
+
+
 #Registro de Médicos
+
+
+
+
+
 
 
 

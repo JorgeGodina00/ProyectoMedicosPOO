@@ -4,24 +4,33 @@
         <table class="table">
             <thead>
                 <tr>
-                    <td>Id:</td>
-                    <td>Nombre:</td>
-                    <td>Artista:</td>
-                    <td>Año de publicacion:</td>
-                    <td>Acciones:</td>
+                    <th>Id:</th>
+                    <th>RFC Médico:</th>
+                    <th>Nombre Paciente:</th>
+                    <th>Apellido Paterno:</th>
+                    <th>Apellido Materno:</th>
+                    <th>Fecha de Nacimiento:</th>
+                    <th>Enfermedades:</th>
+                    <th>Alergias:</th>
+                    <th>Antecedentes:</th>
                 </tr>
             </thead>
             <tbody>
-                {% for alb in listAlbums %}
+                {% for pacientes in listpaciente %}
                     <tr>
-                        <td>{{ alb.0 }}</td>
-                        <td>{{ alb.1 }}</td>
-                        <td>{{ alb.2 }}</td>
-                        <td>{{ alb.3 }}</td>
+                        <td>{{ pacientes.0 }}</td>
+                        <td>{{ pacientes.1 }}</td>
+                        <td>{{ pacientes.2 }}</td>
+                        <td>{{ pacientes.3 }}</td>
+                        <td>{{ pacientes.4 }}</td>
+                        <td>{{ pacientes.5 }}</td>
+                        <td>{{ pacientes.6 }}</td>
+                        <td>{{ pacientes.7 }}</td>
+                        <td>{{ pacientes.8 }}</td>
                         <td>
-                            <a href="/editar/{{ alb.0 }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
-                            <a href="/borrar/{{ alb.0 }}" class="btn btn-danger"><i class="bi bi-trash3"></i></a>
-                            <a href=""></a>
+                            <a href="" class="btn btn-warning"><i class="bi bi-pencil-square"></i>Editar</a>
+                            <a href="" class="btn btn-danger"><i class="bi bi-trash3"></i>Eliminar</a>
+                           
                         </td>
                     </tr>
                 {% endfor %}
