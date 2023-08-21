@@ -1,0 +1,37 @@
+
+{% extends 'templateadmin.html' %}
+
+{% block body %}
+<center>
+<div class="container-xxl">
+    <h1 class="display-4 text-secondary mt-5">Eliminar Paciente</h1>
+    <div class="col-md-5">
+        <div class="card card-body">
+            <h2 class="display-8 mt-2 mb-4">¿Seguro que quieres eliminar este Paciente?</h2>
+            <form action="/eliminar/{{ paciente.0 }}" method="POST">
+                <div class="mb-3"> 
+                    <h2 class="display-7 mt-2 mb-2">Paciente:</h2>
+                    <input type="text" class="form-control" name="txtTitulo" value="{{ paciente.2 }}" readonly>
+                </div>
+                <div class="mb-3">
+                    <h2 class="display-7 mt-2 mb-2">Apellidos:</h2>
+                    <input type="text" class="form-control" name="txtArtista" value="{{ paciente.3 }} {{ paciente.4 }}" readonly>
+                </div>
+                <div class="mb-3">
+                    <h2 class="display-7 mt-2 mb-2">Fecha de Nacimiento:</h2>
+                    <input type="date" class="form-control" name="txtAnio" value="{{ paciente.5 }}" readonly>
+                </div>  
+                <div class="mb-3">
+                    <h2 class="display-7 mt-2 mb-2">Enfermedades:</h2>
+                    <input type="text" class="form-control" name="txtAnio" value="{{ paciente.6  }}" readonly>
+                </div>           
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a href="/admin"><button class="btn btn-warning" type="button">Cancelar</button></a>
+                    <button type="submit" class="btn btn-danger me-md-2"><i class="bi bi-trash"></i>Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</center>
+{% endblock %}

@@ -68,25 +68,30 @@
                 {% endwith %}
                 <div class="tabla-registro-medicos">
                     <h1>Registro de Pacientes</h1>
-                    <form method="POST" action="/agregarpacientes2">
-                        <label for="rfc">Nombre: </label>
-                        <input type="text" name="nombre" required><br>
+                    <form method="POST" action="/guardarpaciente">
+                        <label for="rfc">RFC:</label>
+                        <input type="text" name="rfctxt" required placeholder="Escribe el RFC del Médico consultor"> <br>
+                        
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" name="nomtxt" required placeholder="Escribe el Nombre del Paciente"><br>
                 
-                        <label for="cedula">Fecha de Nacimiento: </label>
-                        <input type="date" name="nacimiento" required><br>
-                
-                        <label for="correo">Enfermedades: </label>
-                        <input type="text" name="enfermedades" required><br>
-                
-                        <label for="id_rol">Alergias: </label>
-                        <input type="text" name="alergias" required><br>
-                
-                        <label for="password">Antecedentes: </label>
-                        <input type="text" name="antecendentes" required><br>
-                
-                        <label for="nombre">RFC_Medico: </label>
-                        <input type="text" name="medico_rfc" required><br>
+                        <label for="apellido1">Apellido Paterno:</label>
+                        <input type="text" name="aptxt" required placeholder="Escribe el Primer Apellido del Paciente"><br>
+                        
+                        <label for="apellido2">Apellido Materno:</label>
+                        <input type="text" name="amtxt" required placeholder="Escribe el Segundo Apellido del Paciente"><br>
 
+                        <label for="Fecha de Nacimiento">Fecha de Nacimiento:</label>
+                        <input type="date" name="datetxt" required placeholder="Selecciona la Fecha de Nacimiento del Paciente"><br>
+                
+                        <label for="id_rol">Enfermedades:</label>
+                        <input type="text" name="entxt" required placeholder="Escribe alguna enfermedad cronica del Paciente"><br>
+                
+                        <label for="id_rol">Alergias:</label>
+                        <input type="text" name="altxt" required placeholder="Escribe alguna alergía del Paciente"><br>
+                        
+                        <label for="id_rol">Antecedentes:</label>
+                        <input type="text" name="anttxt" required placeholder="Escribe algun Antecedente del Paciente"><br>
                 
                         <input type="submit" value="Registrar">
                     </form>

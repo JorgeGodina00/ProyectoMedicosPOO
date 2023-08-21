@@ -11,27 +11,37 @@
 
 </head>
 <body>
-
+  {% with mensajes = get_flashed_messages() %}
+    {% if mensajes %}
+      {% for msj in mensajes %}
+        <script>
+          document.addEventListener('DOMContentLoaded', function(){
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: '{{msj}}',
+              showConfitmationButton: false,
+              timer: 2000
+            });
+          });
+        </script>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
 
 
     <div class="login-box">   
 
       <img class= "img" src="..\static\images\logo2.png" alt="Logo Sistema">
       <h1>Iniciar Sesion</h1>
-      {% if mensaje%}
-      <div class="alert alert-danger" role="alert">
-        {{mensaje}}
-      </div>
-      <script>Swal.fire('Error', 'Usuario o Contraseña Incorrecto',  'error' ) </script>
-      {% endif %}
-      <form class = "form-group" action="acceso-login" method="POST">
+      <form class = "form-group" action="/acceso-login" method="POST">
         <div class="form-group">
-          <label for="exampleInputEmail1">RFC</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingresar RFC" name="txtRFC">       
+          <label>RFC</label>
+          <input type="text" class="form-control" placeholder="Ingresar RFC" name="txtRFC" required>       
        </div>
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="txtPass">
+          <label>Password</label>
+          <input type="password" class="form-control" placeholder="Password" name="txtPass" required>
         </div>
         <button type="submit" class="btn btn-primary">Ingresar</button>
       </form>

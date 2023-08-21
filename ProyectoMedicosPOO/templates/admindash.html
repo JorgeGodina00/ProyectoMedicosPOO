@@ -3,42 +3,91 @@
 {% block body %} 
     <center>
         <h1>ADMIN DASHBOARD</h1>
-        <div class="container">
-            <div class="col-md-5">
-                <h2>Medicos Registrados</h2>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>RFC: </th>
-                                <th>Correo: </th>
-                                <th>id_rol: </th>
-                                <th>Contraseña: </th>
-                                <th>Nombre: </th>
-                                <th>Apellido: </th>
-                                <th>Acciones: </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for medico in listaMedicos %}
-                                <tr>
-                                    <td>{{ medico.1 }}</td>
-                                    <td>{{ medico.2 }}</td>
-                                    <td>{{ medico.3 }}</td>
-                                    <td>{{ medico.4 }}</td>
-                                    <td>{{ medico.5 }}</td>
-                                    <td>{{ medico.6 }}</td>
-                                    <td>
-                                        <a href="/editar/{{ medico.0 }}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
-                                        <a href="/borrar/{{ medico.0 }}" class="btn btn-danger"><i class="bi bi-trash3"></i></a>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        <body>
+            <body>
+                <style>
+                    
+                    h1 {
+                        text-align: center;
+                        margin-top: 20px;
+                    }
+            
+                    .container {
+                        width: 400px;
+                        background-color: #ffffff;
+                        margin: 0 auto;
+                        padding: 20px;
+                        border-radius: 5px;
+                        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                    }
+            
+                    label {
+                        display: block;
+                        margin-bottom: 5px;
+                        font-weight: bold;
+                    }
+            
+                    input[type="text"],
+                    input[type="email"],
+                    input[type="password"] {
+                        width: 100%;
+                        padding: 10px;
+                        margin-bottom: 15px;
+                        border: 1px solid #ccc;
+                        border-radius: 3px;
+                    }
+            
+                    input[type="submit"] {
+                        width: 100%;
+                        padding: 10px;
+                        background-color: #007bff;
+                        color: #ffffff;
+                        border: none;
+                        border-radius: 3px;
+                        cursor: pointer;
+                    }
+            
+                    input[type="submit"]:hover {
+                        background-color: #0056b3;
+                    }
+                </style>
+            {% with mensajes = get_flashed_messages() %}
+            {% if mensajes %}
+                <!-- Iterar a través de los mensajes flash -->
+                {% for msj in mensajes %}
+                    <!-- Agregar un script para mostrar el mensaje con SweetAlert -->
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            Swal.fire({
+                                icon: 'success',
+                                title: '{{ msj }}',
+                                showConfirmButton: false,
+                                timer: 2000 // 2 segundos
+                            });
+                        });
+                    </script>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+          <div class="container">
+            <h2>Administracion de Medicos</h2>
+            <form action="/registrarmedico" method="POST">
+              <input type="text" name="txtRFC" placeholder="RFC" required>
+              <input type="text" name="txtNom" placeholder="Nombre" required>
+              <input type="text" name="txtAP" placeholder="Apellido Paterno" required>
+              <input type="text" name="txtAM" placeholder="Apellido Materno" required>
+              <input type="text" name="txtCed" placeholder="Cedula" required>
+              <input type="email" name="txtCorr" placeholder="Correo" required>
+              <select name="txtRol" required>
+                <option value="" disabled selected>Seleccionar Rol</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Medico">Medico</option>
+              </select>
+              <input type="password" name="txtPass" placeholder="Contraseña" required>
+              <button type="submit">Ingresar</button>
+            </form>
+          </div>
+        </body>
     </center>
 {% endblock %}
 

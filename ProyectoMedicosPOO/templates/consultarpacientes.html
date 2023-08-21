@@ -1,0 +1,50 @@
+{% extends 'templateadmin.html' %}
+
+{% block body %} 
+
+<center>
+    <div class="container">
+        <div class="col-md-12"> <!-- column 12 to ensure full width -->
+            <h2>Pacientes</h2>
+            <div class="table-responsive"> <!-- Table Responsive -->
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id:</th>
+                            <th>RFC Médico:</th>
+                            <th>Nombre Paciente:</th>
+                            <th>Apellido Paterno:</th>
+                            <th>Apellido Materno:</th>
+                            <th>Fecha de Nacimiento:</th>
+                            <th>Enfermedades:</th>
+                            <th>Alergias:</th>
+                            <th>Antecedentes:</th>
+                            <th>Acciones:</th> <!-- Column for Edit and Delete buttons -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for paciente in listPacientes %}
+                            <tr>
+                                <td>{{ paciente.0 }}</td>
+                                <td>{{ paciente.1 }}</td>
+                                <td>{{ paciente.2 }}</td>
+                                <td>{{ paciente.3 }}</td>
+                                <td>{{ paciente.4 }}</td>
+                                <td>{{ paciente.5 }}</td>
+                                <td>{{ paciente.6 }}</td>
+                                <td>{{ paciente.7 }}</td>
+                                <td>{{ paciente.8 }}</td>
+                                <td>
+                                    <a href="/editar/{{ paciente.0 }} " class="btn btn-warning"><i class="bi bi-pencil-square"></i> </a>
+                                    <a href="/borrar/{{ paciente.0 }}" class="btn btn-danger"><i class="bi bi-trash3"></i> </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div> <!-- Table Responsive -->
+        </div> <!-- column 12 -->
+        
+     </div>
+</center>
+ {% endblock %}
