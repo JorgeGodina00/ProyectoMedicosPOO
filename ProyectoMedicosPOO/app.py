@@ -60,10 +60,11 @@ def login_required(f):
 def admindash():
         return render_template('admindash.html')
 
-@app.route('/menu')
+@app.route('/usuindex')
 @login_required
 def menuusu():
     return render_template('usuindex.html')
+
 
 
 @app.route('/salir')
@@ -100,6 +101,29 @@ def consultarmedicos():
     curSelect.execute('SELECT * FROM medicos')
     consulta = curSelect.fetchall()
     return render_template('consultarmedicos.html', listMedicos = consulta)
+
+@app.route('/actualizarmedico/<rfc>', methods=['POST'])
+@login_required
+def actualizar(rfc):
+    if request.method == 'POST':
+        rfc= request.form['rfctxt']
+        nombre= request.form['nomtxt']
+        apellidop= request.form['aptxt']
+        apellidom= request.form['amtxt']
+        cedula = request.form['cedulatxt']
+        correo = request.form['correotxt']
+        rol = request.form['roltxt']
+        contrasena = request.form['contrasenatxt']
+        CS = mysql.connection.cursor() #Variable de tipo cursor que contiene las herramientas paara realizar los querys
+        CS.execute('UPDATE medicos SET RFC = %s, Nombre=%s, Apellido1=%s, Apellido2=%s, Cedula=%s, Correo=%s, Rol=%s, Constraseña=%s WHERE RFC =%s', (rfc, nombre, apellidop, apellidom, cedula, correo, rol, contrasena, rfc))
+        mysql.connection.commit()
+    flash('Se ha hecho el registro correctamente')    
+    return render_template('consultarmedicos.html')
+
+@app.route('/borrarmedico/<rfc>')
+@login_required
+def borrarmedico():
+    return render_template('')
 
 @app.route('/agregarpacientes')
 @login_required
